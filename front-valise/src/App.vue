@@ -1,12 +1,24 @@
 <template>
-  <ul></ul>
+  <ul>
+    <Possession
+      v-for="possession in possessionsToBeTaken"
+      :key="possession.name"
+      :name="possession.name"
+      :room="possession.room"
+      :tags="possession.tags"
+    ></Possession>
+  </ul>
 </template>
 
 <script>
+import Possession from "./components/possessions/Possession.vue";
 export default {
+  components: {
+    Possession,
+  },
   data() {
     return {
-      itemToBeTaken: [
+      possessionsToBeTaken: [
         {
           name: "ordinateur",
           room: "chambre",

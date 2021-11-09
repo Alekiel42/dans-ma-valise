@@ -1,6 +1,6 @@
 <template>
   <li>
-    <div>
+    <base-card>
       <header>
         <h3>{{ name }}</h3>
         <button>Pris !</button>
@@ -10,7 +10,7 @@
         <li v-for="tag in tags" :key="tag">{{ tag }}</li>
       </ul>
       <button>Supprimer</button>
-    </div>
+    </base-card>
   </li>
 </template>
 

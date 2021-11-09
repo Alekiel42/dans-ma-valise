@@ -1,22 +1,22 @@
 <template>
   <ul>
-    <Possession
+    <possession-item
       v-for="possession in possessions"
       :key="possession.name"
       :name="possession.name"
       :room="possession.room"
       :tags="possession.tags"
-    ></Possession>
+    ></possession-item>
   </ul>
 </template>
 
 <script>
-import Possession from "./Possession.vue";
+import PossessionItem from "./PossessionItem.vue";
 
 export default {
   props: ["possessions"],
   components: {
-    Possession,
+    PossessionItem,
   },
 };
 </script>

@@ -1,12 +1,16 @@
 <template>
+  <the-header title="Dans ma valise"></the-header>
   <list-possessions :possessions="possessionsToBeTaken"></list-possessions>
 </template>
 
 <script>
 import ListPossessions from "./components/possessions/ListPossessions.vue";
+import TheHeader from "./components/layouts/TheHeader.vue";
+
 export default {
   components: {
     ListPossessions,
+    TheHeader,
   },
   data() {
     return {
@@ -47,9 +51,5 @@ html {
 
 body {
   margin: 0;
-}
-
-h1 {
-  font-family: "Mochiy Pop One", sans-serif;
 }
 </style>

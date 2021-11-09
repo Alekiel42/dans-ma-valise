@@ -3,13 +3,13 @@
     <base-card>
       <header>
         <h3>{{ name }}</h3>
-        <button>Pris !</button>
+        <base-button>Pris !</base-button>
       </header>
       <p>{{ room }}</p>
       <ul class="tag">
         <li v-for="tag in tags" :key="tag">{{ tag }}</li>
       </ul>
-      <button>Supprimer</button>
+      <base-button mode="flat">Supprimer cette carte</base-button>
     </base-card>
   </li>
 </template>

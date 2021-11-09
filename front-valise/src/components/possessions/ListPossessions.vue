@@ -14,7 +14,7 @@
 import PossessionItem from "./PossessionItem.vue";
 
 export default {
-  props: ["possessions"],
+  inject: ["possessions"],
   components: {
     PossessionItem,
   },

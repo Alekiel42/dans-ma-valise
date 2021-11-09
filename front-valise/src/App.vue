@@ -1,38 +1,16 @@
 <template>
   <the-header title="Dans ma valise"></the-header>
-  <list-possessions :possessions="possessionsToBeTaken"></list-possessions>
+  <the-nav-possession></the-nav-possession>
 </template>
 
 <script>
-import ListPossessions from "./components/possessions/ListPossessions.vue";
 import TheHeader from "./components/layouts/TheHeader.vue";
+import TheNavPossession from "./components/possessions/TheNavPossession.vue";
 
 export default {
   components: {
-    ListPossessions,
     TheHeader,
-  },
-  data() {
-    return {
-      possessionsToBeTaken: [
-        {
-          name: "ordinateur",
-          room: "chambre",
-          tags: ["1 semaine", "2-3 jours"],
-        },
-        { name: "sifflet", room: "placard couloir", tags: ["rando"] },
-        {
-          name: "huile",
-          room: "salle-de-bain",
-          tags: ["1 semaine", "2-3 jours"],
-        },
-        {
-          name: "gourde",
-          room: "salon",
-          tags: ["1 semaine", "2-3 jours", "1 jour"],
-        },
-      ],
-    };
+    TheNavPossession,
   },
 };
 </script>

@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ul></ul>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      itemToBeTaken: [
+        {
+          name: "ordinateur",
+          room: "chambre",
+          tags: ["1 semaine", "2-3 jours"],
+        },
+        { name: "sifflet", room: "placard couloir", tags: ["rando"] },
+        {
+          name: "huile",
+          room: "salle-de-bain",
+          tags: ["1 semaine", "2-3 jours"],
+        },
+        {
+          name: "gourde",
+          room: "salon",
+          tags: ["1 semaine", "2-3 jours", "1 jour"],
+        },
+      ],
+    };
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

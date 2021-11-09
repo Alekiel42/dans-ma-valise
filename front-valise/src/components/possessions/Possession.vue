@@ -6,7 +6,7 @@
         <button>Pris !</button>
       </header>
       <p>{{ room }}</p>
-      <ul>
+      <ul class="tag">
         <li v-for="tag in tags" :key="tag">{{ tag }}</li>
       </ul>
       <button>Supprimer</button>
@@ -19,3 +19,47 @@ export default {
   props: ["name", "room", "tags"],
 };
 </script>
+
+<style scoped>
+li {
+  margin: auto;
+  max-width: 40rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ce5c00;
+}
+
+a:hover,
+a:active {
+  color: #c89300;
+}
+
+.tag {
+  display: flex;
+  justify-content: left;
+}
+
+.tag li {
+  font-size: 0.8rem;
+  background-color: aquamarine;
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+</style>

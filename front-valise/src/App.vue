@@ -1,20 +1,12 @@
 <template>
-  <ul>
-    <Possession
-      v-for="possession in possessionsToBeTaken"
-      :key="possession.name"
-      :name="possession.name"
-      :room="possession.room"
-      :tags="possession.tags"
-    ></Possession>
-  </ul>
+  <list-possessions :possessions="possessionsToBeTaken"></list-possessions>
 </template>
 
 <script>
-import Possession from "./components/possessions/Possession.vue";
+import ListPossessions from "./components/possessions/ListPossessions.vue";
 export default {
   components: {
-    Possession,
+    ListPossessions,
   },
   data() {
     return {
@@ -40,3 +32,24 @@ export default {
   },
 };
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Mochiy Pop One", sans-serif;
+}
+</style>

@@ -49,28 +49,16 @@
 </template>
 
 <script>
-import BaseButton from "../UI/BaseButton.vue";
 export default {
-  components: { BaseButton },
   data() {
     return {
-      tags: [
-        "1 semaine+",
-        "2-3 jours",
-        "1 jours",
-        "rando",
-        "Sport",
-        "Hiver",
-        "Eté",
-        "Camping",
-      ],
       rooms: ["chambre", "salle-de-bain", "salon", "cuisine", "entrée"],
       tagChecked: [],
       roomPicked: "",
       inputIsInvalid: false,
     };
   },
-  inject: ["addPossession"],
+  inject: ["addPossession", "tags"],
   methods: {
     submitData() {
       const enteredPossession = this.$refs.possessionInput.value;

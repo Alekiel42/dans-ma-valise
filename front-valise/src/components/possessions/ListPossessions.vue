@@ -1,4 +1,5 @@
 <template>
+  <the-filter></the-filter>
   <ul>
     <possession-item
       v-for="possession in possessions"
@@ -13,11 +14,13 @@
 
 <script>
 import PossessionItem from "./PossessionItem.vue";
+import TheFilter from "./../layouts/TheFilter.vue";
 
 export default {
   inject: ["possessions"],
   components: {
     PossessionItem,
+    TheFilter,
   },
 };
 </script>

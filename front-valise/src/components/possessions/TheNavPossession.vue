@@ -62,6 +62,16 @@ export default {
       possessions: this.possessionsToBeTaken,
       addPossession: this.addPossession,
       deletePossession: this.removePossession,
+      tags: [
+        "1 semaine+",
+        "2-3 jours",
+        "1 jours",
+        "rando",
+        "Sport",
+        "Hiver",
+        "Eté",
+        "Camping",
+      ],
     };
   },
   computed: {

@@ -9,14 +9,17 @@
       <ul class="tag">
         <li v-for="tag in tags" :key="tag">{{ tag }}</li>
       </ul>
-      <base-button mode="flat">Supprimer cette carte</base-button>
+      <base-button mode="flat" @click="deletePossession(id)"
+        >Supprimer cette carte</base-button
+      >
     </base-card>
   </li>
 </template>
 
 <script>
 export default {
-  props: ["name", "room", "tags"],
+  inject: ["deletePossession"],
+  props: ["name", "room", "tags", "id"],
 };
 </script>
 

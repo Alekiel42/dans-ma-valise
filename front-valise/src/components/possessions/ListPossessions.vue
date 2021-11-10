@@ -3,6 +3,7 @@
     <possession-item
       v-for="possession in possessions"
       :key="possession.id"
+      :id="possession.id"
       :name="possession.name"
       :room="possession.room"
       :tags="possession.tags"

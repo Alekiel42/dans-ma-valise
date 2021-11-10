@@ -57,6 +57,7 @@ export default {
     return {
       possessions: this.possessionsToBeTaken,
       addPossession: this.addPossession,
+      deletePossession: this.removePossession,
     };
   },
   methods: {
@@ -72,6 +73,14 @@ export default {
       };
       this.possessionsToBeTaken.unshift(newPossession);
       this.selectedTab = "list-possessions";
+    },
+    removePossession(possessionId) {
+      const possessionIndex = this.possessionsToBeTaken.findIndex(
+        (poss) => poss.id === possessionId
+      );
+      if (possessionIndex !== -1) {
+        this.possessionsToBeTaken.splice(possessionIndex, 1);
+      }
     },
   },
 };

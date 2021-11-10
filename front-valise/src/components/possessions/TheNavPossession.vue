@@ -107,6 +107,7 @@ export default {
       );
       if (possessionIndex !== -1) {
         this.possessionsToBeTaken.splice(possessionIndex, 1);
+        this.filterListPossession();
       }
     },
     changeSelectedTag(name) {

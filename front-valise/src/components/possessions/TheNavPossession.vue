@@ -1,9 +1,13 @@
 <template>
   <base-card>
-    <base-button @click="setSelectedTab('list-possessions')"
+    <base-button
+      @click="setSelectedTab('list-possessions')"
+      :mode="listPosButtonMode"
       >Affaire à prendre</base-button
     >
-    <base-button @click="setSelectedTab('add-possession')"
+    <base-button
+      @click="setSelectedTab('add-possession')"
+      :mode="addPosButtonMode"
       >Ajouter un élément</base-button
     >
   </base-card>
@@ -59,6 +63,14 @@ export default {
       addPossession: this.addPossession,
       deletePossession: this.removePossession,
     };
+  },
+  computed: {
+    listPosButtonMode() {
+      return this.selectedTab === "list-possessions" ? null : "flat";
+    },
+    addPosButtonMode() {
+      return this.selectedTab === "add-possession" ? null : "flat";
+    },
   },
   methods: {
     setSelectedTab(tab) {

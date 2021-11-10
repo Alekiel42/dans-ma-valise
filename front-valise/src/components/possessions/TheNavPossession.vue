@@ -52,14 +52,7 @@ export default {
           hidden: false,
         },
       ],
-    };
-  },
-  provide() {
-    return {
-      possessions: this.possessionsToBeTaken,
-      addPossession: this.addPossession,
-      deletePossession: this.removePossession,
-      tags: [
+      listTags: [
         {
           name: "1 semaine+",
           selected: true,
@@ -73,6 +66,15 @@ export default {
           selected: true,
         },
       ],
+    };
+  },
+  provide() {
+    return {
+      changeSelectedTag: this.changeSelectedTag,
+      possessions: this.possessionsToBeTaken,
+      addPossession: this.addPossession,
+      deletePossession: this.removePossession,
+      tags: this.listTags,
     };
   },
   computed: {
@@ -104,6 +106,13 @@ export default {
       );
       if (possessionIndex !== -1) {
         this.possessionsToBeTaken.splice(possessionIndex, 1);
+      }
+    },
+    changeSelectedTag(name) {
+      // ensuite il faudra réaffiher liste en fct des tag selected
+      const tagIndex = this.listTags.findIndex((tag) => tag.name === name);
+      if (tagIndex !== -1) {
+        this.listTags[tagIndex].selected = !this.listTags[tagIndex].selected;
       }
     },
   },

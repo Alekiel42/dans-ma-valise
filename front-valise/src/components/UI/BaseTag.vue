@@ -1,11 +1,25 @@
 <template>
-  <div>
+  <div :class="changeClassTag">
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    selected: {
+      type: Boolean,
+      required: false,
+    },
+  },
+  //todo change style si sleected ou pas
+  //todo computed si styke change, class a mettre
+  computed: {
+    changeClassTag() {
+      return this.selected ? null : "unselected";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -16,5 +30,10 @@ div {
   border-radius: 2rem;
   padding: 0.5rem;
   margin: 0.3rem;
+}
+
+.unselected {
+  color: #338ca2;
+  background-color: white;
 }
 </style>

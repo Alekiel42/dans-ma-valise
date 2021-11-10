@@ -35,24 +35,21 @@ export default {
           name: "ordinateur",
           room: "chambre",
           tags: ["1 semaine", "2-3 jours"],
+          hidden: false,
         },
         {
           id: "jkhhhh",
           name: "sifflet",
           room: "placard couloir",
           tags: ["rando"],
-        },
-        {
-          id: "jhg",
-          name: "huile",
-          room: "salle-de-bain",
-          tags: ["1 semaine", "2-3 jours"],
+          hidden: false,
         },
         {
           id: "ll",
           name: "gourde",
           room: "salon",
           tags: ["1 semaine", "2-3 jours", "1 jour"],
+          hidden: false,
         },
       ],
     };
@@ -63,14 +60,18 @@ export default {
       addPossession: this.addPossession,
       deletePossession: this.removePossession,
       tags: [
-        "1 semaine+",
-        "2-3 jours",
-        "1 jours",
-        "rando",
-        "Sport",
-        "Hiver",
-        "Eté",
-        "Camping",
+        {
+          name: "1 semaine+",
+          selected: true,
+        },
+        {
+          name: "1-2 jours",
+          selected: true,
+        },
+        {
+          name: "1 jour",
+          selected: true,
+        },
       ],
     };
   },
@@ -92,6 +93,7 @@ export default {
         name,
         room,
         tags,
+        hidden: false,
       };
       this.possessionsToBeTaken.unshift(newPossession);
       this.selectedTab = "list-possessions";

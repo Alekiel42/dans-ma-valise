@@ -2,7 +2,7 @@
   <base-card>
     <h2>Filter les objets en fonction du type de voyage</h2>
     <div class="filter">
-      <base-tag v-for="tag in tags" :key="tag">{{ tag }} </base-tag>
+      <base-tag v-for="tag in tags" :key="tag.name">{{ tag.name }} </base-tag>
     </div>
   </base-card>
 </template>
@@ -17,6 +17,7 @@ export default {
 h2 {
   font-size: 1rem;
 }
+
 .filter {
   display: flex;
 }

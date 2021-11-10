@@ -36,9 +36,14 @@
 
       <fieldset>
         <legend>Quand faut-il prendre cet objet ?</legend>
-        <div v-for="tag in tags" :key="tag" class="answer">
-          <input type="checkbox" :id="tag" :value="tag" v-model="tagChecked" />
-          <label :for="tag">{{ tag }}</label>
+        <div v-for="tag in tags" :key="tag.name" class="answer">
+          <input
+            type="checkbox"
+            :id="tag.name"
+            :value="tag.name"
+            v-model="tagChecked"
+          />
+          <label :for="tag.name">{{ tag.name }}</label>
         </div>
       </fieldset>
       <div>

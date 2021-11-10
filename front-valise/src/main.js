@@ -7,6 +7,8 @@ import BaseTag from './components/UI/BaseTag.vue';
 
 const app = createApp(App);
 
+app.config.unwrapInjectedRef = true;
+
 app.component('base-card', BaseCard);
 app.component('base-button', BaseButton);
 app.component('base-dialog', BaseDialog);

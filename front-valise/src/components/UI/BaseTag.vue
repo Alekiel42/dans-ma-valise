@@ -12,11 +12,8 @@ export default {
       default: true,
     },
   },
-  //todo change style si sleected ou pas
-  //todo computed si styke change, class a mettre
   computed: {
     changeClassTag() {
-      console.log("this selected", this.selected);
       return this.selected ? null : "unselected";
     },
   },

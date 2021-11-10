@@ -22,9 +22,6 @@ export default {
     PossessionItem,
     TheFilter,
   },
-  mounted() {
-    console.log(this.possessions);
-  },
 };
 </script>
 

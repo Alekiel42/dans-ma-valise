@@ -18,6 +18,8 @@
 
 
 <script>
+// pas sur pour reactive
+import * as Vue from "vue";
 import ListPossessions from "./ListPossessions.vue";
 import AddPossession from "./AddPossession.vue";
 
@@ -34,24 +36,22 @@ export default {
           id: "jhkj",
           name: "ordinateur",
           room: "chambre",
-          tags: ["1 semaine", "2-3 jours"],
-          hidden: false,
+          tags: ["1 semaine+", "1-2 jours"],
         },
         {
           id: "jkhhhh",
           name: "sifflet",
           room: "placard couloir",
           tags: ["rando"],
-          hidden: false,
         },
         {
           id: "ll",
           name: "gourde",
           room: "salon",
-          tags: ["1 semaine", "2-3 jours", "1 jour"],
-          hidden: false,
+          tags: ["1 semaine+", "1-2 jours", "1 jour"],
         },
       ],
+      filteredPossessions: [],
       listTags: [
         {
           name: "1 semaine+",
@@ -71,7 +71,7 @@ export default {
   provide() {
     return {
       changeSelectedTag: this.changeSelectedTag,
-      possessions: this.possessionsToBeTaken,
+      possessions: Vue.computed(() => this.filteredPossessions),
       addPossession: this.addPossession,
       deletePossession: this.removePossession,
       tags: this.listTags,
@@ -109,12 +109,30 @@ export default {
       }
     },
     changeSelectedTag(name) {
-      // ensuite il faudra réaffiher liste en fct des tag selected
       const tagIndex = this.listTags.findIndex((tag) => tag.name === name);
       if (tagIndex !== -1) {
         this.listTags[tagIndex].selected = !this.listTags[tagIndex].selected;
       }
+      this.filterListPossession();
     },
+    filterListPossession() {
+      // changer la structure pour n'avoir qu'un array de tags au lieux d'un array d'objet
+      const listTagSelected = [];
+      this.listTags.forEach((tag) => {
+        if (tag.selected) {
+          listTagSelected.push(tag.name);
+        }
+      });
+
+      const possessionsFiltered = this.possessionsToBeTaken.filter((pos) =>
+        pos.tags.some((r) => listTagSelected.indexOf(r) >= 0)
+      );
+
+      this.filteredPossessions = possessionsFiltered;
+    },
+  },
+  beforeMount() {
+    this.filteredPossessions = [...this.possessionsToBeTaken];
   },
 };
 </script>

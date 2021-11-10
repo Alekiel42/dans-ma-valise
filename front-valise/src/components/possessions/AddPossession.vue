@@ -1,4 +1,13 @@
 <template>
+  <base-dialog v-if="inputIsInvalid" title="Les champs ne sont pas complets">
+    <template #default>
+      <p>Outch un champ ou plus n'a pas été rempli.</p>
+      <p>Veuillez relire le formulaire.</p>
+    </template>
+    <template #actions>
+      <base-button @click="confirmError">Okay</base-button>
+    </template>
+  </base-dialog>
   <base-card>
     <form @submit.prevent="submitData">
       <div class="form-control">
@@ -58,6 +67,7 @@ export default {
       rooms: ["chambre", "salle-de-bain", "salon", "cuisine", "entrée"],
       tagChecked: [],
       roomPicked: "",
+      inputIsInvalid: false,
     };
   },
   inject: ["addPossession"],
@@ -66,7 +76,20 @@ export default {
       const enteredPossession = this.$refs.possessionInput.value;
       const enteredRoom = this.roomPicked;
       const enteredTags = this.tagChecked;
+
+      if (
+        enteredPossession.trim() === "" ||
+        enteredRoom === "" ||
+        enteredTags.length === 0
+      ) {
+        this.inputIsInvalid = true;
+        return;
+      }
+
       this.addPossession(enteredPossession, enteredRoom, enteredTags);
+    },
+    confirmError() {
+      this.inputIsInvalid = false;
     },
   },
 };

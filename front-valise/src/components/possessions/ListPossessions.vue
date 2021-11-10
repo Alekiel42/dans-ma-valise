@@ -2,7 +2,7 @@
   <ul>
     <possession-item
       v-for="possession in possessions"
-      :key="possession.name"
+      :key="possession.id"
       :name="possession.name"
       :room="possession.room"
       :tags="possession.tags"

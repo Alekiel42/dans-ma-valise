@@ -1,15 +1,26 @@
 <template>
   <base-card>
-    <form>
+    <form @submit.prevent="submitData">
       <div class="form-control">
         <label for="possession">Objet</label>
-        <input id="possession" name="possession" type="text" />
+        <input
+          id="possession"
+          name="possession"
+          type="text"
+          ref="possessionInput"
+        />
       </div>
 
       <fieldset>
         <legend>Où est rangé cet objet ?</legend>
         <div v-for="room in rooms" :key="room" class="answer">
-          <input type="radio" name="room" :id="room" :value="room" />
+          <input
+            type="radio"
+            name="room"
+            :id="room"
+            :value="room"
+            v-model="roomPicked"
+          />
           <label :for="room">{{ room }}</label>
         </div>
       </fieldset>
@@ -17,7 +28,7 @@
       <fieldset>
         <legend>Quand faut-il prendre cet objet ?</legend>
         <div v-for="tag in tags" :key="tag" class="answer">
-          <input type="checkbox" :id="tag" :name="tag" checked />
+          <input type="checkbox" :id="tag" :value="tag" v-model="tagChecked" />
           <label :for="tag">{{ tag }}</label>
         </div>
       </fieldset>
@@ -45,7 +56,18 @@ export default {
         "Camping",
       ],
       rooms: ["chambre", "salle-de-bain", "salon", "cuisine", "entrée"],
+      tagChecked: [],
+      roomPicked: "",
     };
+  },
+  inject: ["addPossession"],
+  methods: {
+    submitData() {
+      const enteredPossession = this.$refs.possessionInput.value;
+      const enteredRoom = this.roomPicked;
+      const enteredTags = this.tagChecked;
+      this.addPossession(enteredPossession, enteredRoom, enteredTags);
+    },
   },
 };
 </script>
@@ -77,6 +99,7 @@ fieldset {
   margin-bottom: 0.5rem;
   border-radius: 0.2rem;
 }
+
 .form-control {
   margin: 1rem 0;
 }

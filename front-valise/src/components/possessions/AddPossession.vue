@@ -21,12 +21,17 @@
           <label :for="tag">{{ tag }}</label>
         </div>
       </fieldset>
+      <div>
+        <base-button type="submit">Ajouter l'objet</base-button>
+      </div>
     </form>
   </base-card>
 </template>
 
 <script>
+import BaseButton from "../UI/BaseButton.vue";
 export default {
+  components: { BaseButton },
   data() {
     return {
       tags: [
@@ -49,5 +54,30 @@ export default {
 .answer {
   display: inline-flex;
   margin-right: 0.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  font: inherit;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #636363;
+  background-color: #dbdbdb;
+}
+
+fieldset {
+  margin-bottom: 0.5rem;
+  border-radius: 0.2rem;
+}
+.form-control {
+  margin: 1rem 0;
 }
 </style>

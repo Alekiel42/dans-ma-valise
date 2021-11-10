@@ -98,6 +98,7 @@ export default {
         hidden: false,
       };
       this.possessionsToBeTaken.unshift(newPossession);
+      this.filterListPossession();
       this.selectedTab = "list-possessions";
     },
     removePossession(possessionId) {

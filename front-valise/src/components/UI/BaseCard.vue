@@ -12,10 +12,10 @@ export default {
 
 <style scoped>
 .taken {
-  background-color: rgb(182, 181, 181);
+  background-color: #a6e1f0;
 }
 div {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   margin: 2rem auto;

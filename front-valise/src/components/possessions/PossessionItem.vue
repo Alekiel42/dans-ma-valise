@@ -6,7 +6,7 @@
           <h2>{{ name }}</h2>
           <p class="room">{{ room }}</p>
         </div>
-        <base-button>Pris !</base-button>
+        <base-button @click="handlePossessionsTaken(id)">Pris !</base-button>
       </header>
       <div class="tag">
         <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  inject: ["deletePossession"],
+  inject: ["deletePossession", "handlePossessionsTaken"],
   props: ["name", "room", "tags", "id"],
 };
 </script>

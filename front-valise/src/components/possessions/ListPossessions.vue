@@ -2,7 +2,7 @@
   <the-filter></the-filter>
   <ul>
     <possession-item
-      v-for="possession in possessions"
+      v-for="possession in possessionsNotTakenYet"
       :key="possession.id"
       :id="possession.id"
       :name="possession.name"
@@ -21,6 +21,11 @@ export default {
   components: {
     PossessionItem,
     TheFilter,
+  },
+  computed: {
+    possessionsNotTakenYet() {
+      return this.possessions.filter((pos) => !pos.taken);
+    },
   },
 };
 </script>

@@ -37,18 +37,21 @@ export default {
           name: "ordinateur",
           room: "chambre",
           tags: ["1 semaine+", "1-2 jours"],
+          taken: false,
         },
         {
           id: "jkhhhh",
           name: "sifflet",
           room: "placard couloir",
           tags: ["rando"],
+          taken: false,
         },
         {
           id: "ll",
           name: "gourde",
           room: "salon",
           tags: ["1 semaine+", "1-2 jours", "1 jour"],
+          taken: false,
         },
       ],
       filteredPossessions: [],
@@ -75,6 +78,7 @@ export default {
       addPossession: this.addPossession,
       deletePossession: this.removePossession,
       tags: this.listTags,
+      handlePossessionsTaken: this.handlePossessionsTaken,
     };
   },
   computed: {
@@ -95,7 +99,7 @@ export default {
         name,
         room,
         tags,
-        hidden: false,
+        taken: false,
       };
       this.possessionsToBeTaken.unshift(newPossession);
       this.filterListPossession();
@@ -131,6 +135,16 @@ export default {
       );
 
       this.filteredPossessions = possessionsFiltered;
+    },
+    handlePossessionsTaken(id) {
+      const posIndex = this.possessionsToBeTaken.findIndex(
+        (pos) => pos.id === id
+      );
+      if (posIndex !== -1) {
+        this.possessionsToBeTaken[posIndex].taken =
+          !this.possessionsToBeTaken[posIndex].taken;
+      }
+      //todo refilter?
     },
   },
   beforeMount() {

@@ -134,6 +134,8 @@ export default {
         pos.tags.some((r) => listTagSelected.indexOf(r) >= 0)
       );
 
+      possessionsFiltered.sort((a, b) => (a.room < b.room ? -1 : 1));
+
       this.filteredPossessions = possessionsFiltered;
     },
     handlePossessionsTaken(id) {
@@ -149,6 +151,7 @@ export default {
   },
   beforeMount() {
     this.filteredPossessions = [...this.possessionsToBeTaken];
+    this.filterListPossession();
   },
 };
 </script>

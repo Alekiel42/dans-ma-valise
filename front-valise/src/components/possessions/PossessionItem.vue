@@ -1,14 +1,16 @@
 <template>
   <li>
-    <base-card>
+    <base-card :mode="addTakenPossessionStyle">
       <header>
         <div>
           <h2>{{ name }}</h2>
           <p class="room">{{ room }}</p>
         </div>
-        <base-button @click="handlePossessionsTaken(id)">Pris !</base-button>
+        <base-button @click="handlePossessionsTaken(id)">
+          {{ taken ? "A chercher" : "Pris ! " }}
+        </base-button>
       </header>
-      <div class="tag">
+      <div class="tag" v-if="!taken">
         <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
       </div>
       <base-button mode="flat" @click="deletePossession(id)"
@@ -21,7 +23,12 @@
 <script>
 export default {
   inject: ["deletePossession", "handlePossessionsTaken"],
-  props: ["name", "room", "tags", "id"],
+  props: ["name", "room", "tags", "id", "taken"],
+  computed: {
+    addTakenPossessionStyle() {
+      return this.taken ? "taken" : null;
+    },
+  },
 };
 </script>
 

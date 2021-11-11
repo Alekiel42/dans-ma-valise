@@ -8,6 +8,18 @@
       :name="possession.name"
       :room="possession.room"
       :tags="possession.tags"
+      :taken="false"
+    ></possession-item>
+  </ul>
+  <ul>
+    <possession-item
+      v-for="possession in possessionsTaken"
+      :key="possession.id"
+      :id="possession.id"
+      :name="possession.name"
+      :room="possession.room"
+      :tags="possession.tags"
+      :taken="true"
     ></possession-item>
   </ul>
 </template>
@@ -25,6 +37,9 @@ export default {
   computed: {
     possessionsNotTakenYet() {
       return this.possessions.filter((pos) => !pos.taken);
+    },
+    possessionsTaken() {
+      return this.possessions.filter((pos) => pos.taken);
     },
   },
 };

@@ -65,7 +65,7 @@ export default {
   },
   inject: ["addPossession", "tags"],
   methods: {
-    submitData() {
+    submitData(event) {
       const enteredPossession = this.$refs.possessionInput.value;
       const enteredRoom = this.roomPicked;
       const enteredTags = this.tagChecked;
@@ -80,6 +80,8 @@ export default {
       }
 
       this.addPossession(enteredPossession, enteredRoom, enteredTags);
+
+      event.target.reset();
     },
     confirmError() {
       this.inputIsInvalid = false;

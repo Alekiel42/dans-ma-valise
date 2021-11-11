@@ -14,7 +14,7 @@ Aussi je souhaitais pouvoir regrouper mes objets par lieu de rangement pour m'é
 
 Cette application permet d'afficher une liste d'objets à prendre pour ses voyages en précisant le lieu où il est rangé. 
 
-On peut filter par type de voyages "2 jours + rando" ou "1 semaine + hiver" etc. Ceci permet de n'afficher que les objets utilent pour ce type de voyage. 
+On peut filtrer par type de voyages "2 jours + rando" ou "1 semaine + hiver" etc. Ceci permet de n'afficher que les objets utiles pour ce type de voyage. 
 
 L'utilisateur peut cliquer sur l'objet pour indiquer qu'il est bien dans sa valise. 
 

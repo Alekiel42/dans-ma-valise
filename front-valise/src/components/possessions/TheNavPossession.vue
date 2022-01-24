@@ -31,57 +31,6 @@ export default {
   data() {
     return {
       selectedTab: "list-possessions",
-      possessionsToBeTaken: [
-        {
-          id: "1",
-          name: "Moustiquaire",
-          room: "entrée",
-          tags: ["camping"],
-          taken: false,
-        },
-        {
-          id: "2",
-          name: "sifflet",
-          room: "entrée",
-          tags: ["camping"],
-          taken: false,
-        },
-        {
-          id: "3",
-          name: "gourde",
-          room: "salon",
-          tags: ["1 semaine+", "1-2 jours", "1 jour", "camping"],
-          taken: false,
-        },
-        {
-          id: "4",
-          name: "maillot",
-          room: "chambre",
-          tags: ["1 semaine+", "1-2 jours", "1 jour", "été"],
-          taken: false,
-        },
-        {
-          id: "5",
-          name: "parfum",
-          room: "salle-de-bain",
-          tags: ["1 semaine+", "1-2 jours"],
-          taken: false,
-        },
-        {
-          id: "6",
-          name: "brosse à dent",
-          room: "salle-de-bain",
-          tags: ["1 semaine+", "1-2 jours"],
-          taken: false,
-        },
-        {
-          id: "7",
-          name: "doudoune",
-          room: "entrée",
-          tags: ["hiver"],
-          taken: false,
-        },
-      ],
       filteredPossessions: [],
       listTags: [
         {
@@ -141,16 +90,16 @@ export default {
         tags,
         taken: false,
       };
-      this.possessionsToBeTaken.unshift(newPossession);
+      this.$store.state.possessionsToBeTaken.unshift(newPossession);
       this.filterListPossession();
       this.selectedTab = "list-possessions";
     },
     removePossession(possessionId) {
-      const possessionIndex = this.possessionsToBeTaken.findIndex(
+      const possessionIndex = this.$store.state.possessionsToBeTaken.findIndex(
         (poss) => poss.id === possessionId
       );
       if (possessionIndex !== -1) {
-        this.possessionsToBeTaken.splice(possessionIndex, 1);
+        this.$store.state.possessionsToBeTaken.splice(possessionIndex, 1);
         this.filterListPossession();
       }
     },
@@ -170,7 +119,7 @@ export default {
         }
       });
 
-      const possessionsFiltered = this.possessionsToBeTaken.filter((pos) =>
+      const possessionsFiltered = this.$store.state.possessionsToBeTaken.filter((pos) =>
         pos.tags.some((r) => listTagSelected.indexOf(r) >= 0)
       );
 
@@ -179,18 +128,18 @@ export default {
       this.filteredPossessions = possessionsFiltered;
     },
     handlePossessionsTaken(id) {
-      const posIndex = this.possessionsToBeTaken.findIndex(
+      const posIndex = this.$store.state.possessionsToBeTaken.findIndex(
         (pos) => pos.id === id
       );
       if (posIndex !== -1) {
-        this.possessionsToBeTaken[posIndex].taken =
-          !this.possessionsToBeTaken[posIndex].taken;
+        this.$store.state.possessionsToBeTaken[posIndex].taken =
+          !this.$store.state.possessionsToBeTaken[posIndex].taken;
       }
       //todo refilter?
     },
   },
   beforeMount() {
-    this.filteredPossessions = [...this.possessionsToBeTaken];
+    this.filteredPossessions = [...this.$store.state.possessionsToBeTaken];
     this.filterListPossession();
   },
 };

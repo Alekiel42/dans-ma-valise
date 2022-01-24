@@ -62,6 +62,11 @@ const store = createStore({
                 },
               ]
         };
+    },
+    mutations: {
+        deletePossession(state, payload) {
+            state.possessionsToBeTaken.splice(payload.index, 1);
+        }
     }
 });
 

@@ -100,6 +100,10 @@ export default {
       );
       if (possessionIndex !== -1) {
         this.$store.state.possessionsToBeTaken.splice(possessionIndex, 1);
+        this.$store.commit({
+          type: 'deletePossession',
+          index: possessionIndex
+        });
         this.filterListPossession();
       }
     },

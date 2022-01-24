@@ -90,7 +90,10 @@ export default {
         tags,
         taken: false,
       };
-      this.$store.state.possessionsToBeTaken.unshift(newPossession);
+      this.$store.commit({
+        type: 'addPossession',
+        possession: newPossession
+      });
       this.filterListPossession();
       this.selectedTab = "list-possessions";
     },
@@ -99,12 +102,11 @@ export default {
         (poss) => poss.id === possessionId
       );
       if (possessionIndex !== -1) {
-        this.$store.state.possessionsToBeTaken.splice(possessionIndex, 1);
-        this.$store.commit({
-          type: 'deletePossession',
-          index: possessionIndex
-        });
-        this.filterListPossession();
+          this.$store.commit({
+            type: 'deletePossession',
+            index: possessionIndex
+          });
+          this.filterListPossession();
       }
     },
     changeSelectedTag(name) {
@@ -136,8 +138,10 @@ export default {
         (pos) => pos.id === id
       );
       if (posIndex !== -1) {
-        this.$store.state.possessionsToBeTaken[posIndex].taken =
-          !this.$store.state.possessionsToBeTaken[posIndex].taken;
+        this.$store.commit({
+          type: 'changeTakenValue',
+          index: posIndex
+        })
       }
       //todo refilter?
     },

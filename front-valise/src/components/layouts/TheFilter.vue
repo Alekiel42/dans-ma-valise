@@ -7,6 +7,7 @@
         :key="tag.name"
         :selected="tag.selected"
         @click="changeSelectedTag(tag.name)"
+        class="filter_tag"
       >
         {{ tag.name }}
       </base-tag>
@@ -27,5 +28,9 @@ h2 {
 
 .filter {
   display: flex;
+}
+
+.filter_tag {
+  cursor: pointer;
 }
 </style>

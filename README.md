@@ -51,6 +51,7 @@ git clone <url du repo>
 2. Installez les dépendances
 
 ```bash
+cd front-valise
 npm install 
 ```
 3. Compilation pour le développement

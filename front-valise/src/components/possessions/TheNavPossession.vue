@@ -18,7 +18,6 @@
 
 
 <script>
-// pas sur pour reactive
 import * as Vue from "vue";
 import ListPossessions from "./ListPossessions.vue";
 import AddPossession from "./AddPossession.vue";

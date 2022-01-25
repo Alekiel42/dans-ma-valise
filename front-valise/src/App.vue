@@ -15,9 +15,10 @@ export default {
 };
 </script>
 
-<style>
+<style >
 @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
 
 * {
   box-sizing: border-box;

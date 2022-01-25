@@ -12,7 +12,8 @@ export default {
 
 <style scoped>
 .taken {
-  background-color: #a6e1f0;
+  background-color: #c7c7c7;
+  color: #363636;
 }
 div {
   border-radius: 0.5rem;

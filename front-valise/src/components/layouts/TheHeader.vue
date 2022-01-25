@@ -10,11 +10,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style  lang="scss" scoped>
+@import "./../../scss/_variables.scss";
+
 header {
   width: 100%;
   height: 5rem;
-  background-color: #338ca2;
+  background-image: linear-gradient(to right, $light-color, $dark-color); 
   display: flex;
   justify-content: center;
   align-items: center;

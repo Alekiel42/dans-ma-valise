@@ -29,18 +29,18 @@ import PossessionItem from "./PossessionItem.vue";
 import TheFilter from "./../layouts/TheFilter.vue";
 
 export default {
-  inject: ["possessions"],
   components: {
     PossessionItem,
     TheFilter,
   },
   computed: {
     possessionsNotTakenYet() {
-      return this.possessions.filter((pos) => !pos.taken);
+      return this.$store.getters.possessionsNotTakenYet;
     },
     possessionsTaken() {
-      return this.possessions.filter((pos) => pos.taken);
+      return this.$store.getters.possessionsTaken;
     },
+
   },
 };
 </script>

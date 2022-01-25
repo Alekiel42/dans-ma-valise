@@ -22,8 +22,25 @@
 
 <script>
 export default {
-  inject: ["deletePossession", "handlePossessionsTaken"],
+  inject: ["handlePossessionsTaken"],
   props: ["name", "room", "tags", "id", "taken"],
+  emits: ["filter-possession"],
+  methods: {
+    deletePossession(possessionId) {
+      const possessionIndex = this.$store.state.possessionsToBeTaken.findIndex(
+        (poss) => poss.id === possessionId
+      );
+      if (possessionIndex !== -1) {
+        this.$store.commit({
+            type: 'deletePossession',
+            index: possessionIndex
+          });
+          
+          //todo ancienne foct a changer partout
+          this.$store.getters.filterListPossession;
+      }
+    }
+  },
   computed: {
     addTakenPossessionStyle() {
       return this.taken ? "taken" : null;

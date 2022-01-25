@@ -63,7 +63,8 @@ export default {
       inputIsInvalid: false,
     };
   },
-  inject: ["addPossession", "tags"],
+  inject: ["tags"],
+  emits: ['filter-possession'],
   methods: {
     submitData(event) {
       const enteredPossession = this.$refs.possessionInput.value;
@@ -82,6 +83,24 @@ export default {
       this.addPossession(enteredPossession, enteredRoom, enteredTags);
 
       event.target.reset();
+    },
+    //! a taffer
+     addPossession(name, room, tags) {
+      const newPossession = {
+        id: new Date().toISOString(),
+        name,
+        room,
+        tags,
+        taken: false,
+      };
+      this.$store.commit({
+        type: 'addPossession',
+        possession: newPossession
+      });
+      console.log("apres addPossesion");
+      this.$emit('filter-possession');
+      //! dans PossessionItem
+      //todo this.selectedTab = "list-possessions";
     },
     confirmError() {
       this.inputIsInvalid = false;

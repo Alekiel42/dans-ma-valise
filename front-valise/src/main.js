@@ -60,7 +60,33 @@ const store = createStore({
                   tags: ["hiver"],
                   taken: false,
                 },
-              ]
+              ],
+              listTags: [
+                {
+                  name: "1 semaine+",
+                  selected: true,
+                },
+                {
+                  name: "1-2 jours",
+                  selected: true,
+                },
+                {
+                  name: "1 jour",
+                  selected: true,
+                },
+                {
+                  name: "été",
+                  selected: true,
+                },
+                {
+                  name: "hiver",
+                  selected: true,
+                },
+                {
+                  name: "camping",
+                  selected: true,
+                },
+              ],
         };
     },
     mutations: {
@@ -72,8 +98,35 @@ const store = createStore({
         },
         changeTakenValue(state, payload) {
             state.possessionsToBeTaken[payload.index].taken = !state.possessionsToBeTaken[payload.index].taken
+        },
+    },
+    getters: {
+        //todo a faire e plrs ? en getter ? 
+        filterListPossession(state) {
+          const listTagSelected = [];
+          state.listTags.forEach((tag) => {
+            if (tag.selected) {
+              listTagSelected.push(tag.name);
+            }
+          });
+    
+          const possessionsFiltered = state.possessionsToBeTaken.filter((pos) =>
+            pos.tags.some((r) => listTagSelected.indexOf(r) >= 0)
+          );
+    
+          possessionsFiltered.sort((a, b) => (a.room < b.room ? -1 : 1));
+
+          return possessionsFiltered;
+          //todo ok mais ne rerend pas component
+        },
+        possessionsNotTakenYet(_, getters) {
+          return getters.filterListPossession.filter((pos) => !pos.taken);
+        },
+        possessionsTaken(_, getters) {
+          return getters.filterListPossession.filter((pos) => pos.taken);
         }
     }
+
 });
 
 const app = createApp(App);

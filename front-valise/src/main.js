@@ -101,7 +101,6 @@ const store = createStore({
         },
     },
     getters: {
-        //todo a faire e plrs ? en getter ? 
         filterListPossession(state) {
           const listTagSelected = [];
           state.listTags.forEach((tag) => {
@@ -117,7 +116,6 @@ const store = createStore({
           possessionsFiltered.sort((a, b) => (a.room < b.room ? -1 : 1));
 
           return possessionsFiltered;
-          //todo ok mais ne rerend pas component
         },
         possessionsNotTakenYet(_, getters) {
           return getters.filterListPossession.filter((pos) => !pos.taken);

@@ -31,12 +31,11 @@ export default {
         (poss) => poss.id === possessionId
       );
       if (possessionIndex !== -1) {
-        this.$store.commit({
-            type: 'deletePossession',
-            index: possessionIndex
-          });
-          
-          //todo ancienne foct a changer partout
+          this.$store.commit({
+              type: 'deletePossession',
+              index: possessionIndex
+            });
+            
           this.$store.getters.filterListPossession;
       }
     }

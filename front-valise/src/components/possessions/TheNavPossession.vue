@@ -11,36 +11,31 @@
       >Ajouter un élément</base-button
     > 
   </base-card>
-  <!--
+
   <keep-alive>
-    <component :is="selectedTab" @filter-possession="filterListPossession"></component>
+    <component :is="selectedTab" @redirect-list-possessions="setSelectedTab"></component>
   </keep-alive>
-  -->
-  <list-possessions @filter-possession="filterListPossession"></list-possessions>
+
 </template>
 
 
 <script>
-import * as Vue from "vue";
 import ListPossessions from "./ListPossessions.vue";
-// import AddPossession from "./AddPossession.vue";
+import AddPossession from "./AddPossession.vue";
 
 export default {
   components: {
     ListPossessions,
-    // AddPossession,
+    AddPossession,
   },
   data() {
     return {
       selectedTab: "list-possessions",
-      //todo filterdpossession dans store
-      //todo listTag dans store
     };
   },
   provide() {
     return {
       changeSelectedTag: this.changeSelectedTag,
-      possessions: Vue.computed(() => this.filteredPossessions),
       tags: this.$store.state.listTags,
       handlePossessionsTaken: this.handlePossessionsTaken,
     };
@@ -78,7 +73,6 @@ export default {
     },
   },
   beforeMount() {
-    this.filteredPossessions = [...this.$store.state.possessionsToBeTaken];
     this.$store.getters.filterListPossession;
   },
 };

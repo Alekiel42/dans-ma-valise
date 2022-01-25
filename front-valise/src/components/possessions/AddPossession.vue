@@ -64,7 +64,7 @@ export default {
     };
   },
   inject: ["tags"],
-  emits: ['filter-possession'],
+  emits: ['redirect-list-possessions'],
   methods: {
     submitData(event) {
       const enteredPossession = this.$refs.possessionInput.value;
@@ -84,7 +84,6 @@ export default {
 
       event.target.reset();
     },
-    //! a taffer
      addPossession(name, room, tags) {
       const newPossession = {
         id: new Date().toISOString(),
@@ -97,10 +96,9 @@ export default {
         type: 'addPossession',
         possession: newPossession
       });
-      console.log("apres addPossesion");
-      this.$emit('filter-possession');
-      //! dans PossessionItem
-      //todo this.selectedTab = "list-possessions";
+      this.$store.getters.filterListPossession;
+
+      this.$emit('redirect-list-possessions', 'list-possessions');
     },
     confirmError() {
       this.inputIsInvalid = false;

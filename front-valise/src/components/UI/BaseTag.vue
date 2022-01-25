@@ -20,18 +20,20 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../scss/_variables.scss";
+
 div {
   font-size: 0.8rem;
   color: white;
-  background-color: #338ca2;
+  background-color: $main-color;
   border-radius: 2rem;
   padding: 0.5rem;
   margin: 0.3rem;
 }
 
 .unselected {
-  color: #338ca2;
+  color:  $dark-color;
   background-color: white;
 }
 </style>

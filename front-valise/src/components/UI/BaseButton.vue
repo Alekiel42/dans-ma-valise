@@ -48,5 +48,16 @@ button:active {
   background-color: transparent;
 }
 
+.taken {
+  background-color: transparent;
+  color: rgb(122, 122, 122);
+}
+
+.taken:hover {
+  background-color: rgb(214, 214, 214);
+
+}
+
+
 
 </style>

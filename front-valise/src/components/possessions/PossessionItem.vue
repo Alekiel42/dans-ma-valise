@@ -6,14 +6,14 @@
           <h2>{{ name }}</h2>
           <p class="room">{{ room }}</p>
         </div>
-        <base-button @click="handlePossessionsTaken(id)">
-          {{ taken ? "A chercher" : "Pris ! " }}
+        <base-button @click="handlePossessionsTaken(id)" :mode="addTakenPossessionStyle">
+          {{ taken ? "A prendre" : "Pris ! " }}
         </base-button>
       </header>
       <div class="tag" v-if="!taken">
         <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
       </div>
-      <base-button mode="flat" @click="deletePossession(id)"
+      <base-button :mode="this.taken ? 'taken' : 'flat'" @click="deletePossession(id)"
         >Supprimer cette carte</base-button
       >
     </base-card>

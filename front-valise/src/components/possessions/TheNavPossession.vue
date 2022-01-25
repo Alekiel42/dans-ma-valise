@@ -9,7 +9,7 @@
       @click="setSelectedTab('add-possession')"
       :mode="addPosButtonMode"
       >Ajouter un élément</base-button
-    >
+    > 
   </base-card>
   <keep-alive>
     <component :is="selectedTab"></component>

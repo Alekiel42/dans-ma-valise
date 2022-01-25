@@ -18,6 +18,7 @@
 
 
 <script>
+// pas sur pour reactive
 import * as Vue from "vue";
 import ListPossessions from "./ListPossessions.vue";
 import AddPossession from "./AddPossession.vue";
@@ -116,6 +117,7 @@ export default {
       this.filterListPossession();
     },
     filterListPossession() {
+      // changer la structure pour n'avoir qu'un array de tags au lieux d'un array d'objet
       const listTagSelected = [];
       this.listTags.forEach((tag) => {
         if (tag.selected) {
@@ -141,6 +143,7 @@ export default {
           index: posIndex
         })
       }
+      //todo refilter?
     },
   },
   beforeMount() {

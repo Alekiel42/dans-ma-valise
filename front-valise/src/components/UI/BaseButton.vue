@@ -33,8 +33,7 @@ button div {
 
 button:hover,
 button:active {
-  background-color: $main-color;
-  color: $dark-color;
+  background-color: $dark-color;
 }
 
 

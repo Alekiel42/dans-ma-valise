@@ -11,7 +11,7 @@
   <base-card>
     <form @submit.prevent="submitData">
       <div class="form-control">
-        <label for="possession">Objet</label>
+        <label for="possession">Nom de l'objet</label>
         <input
           id="possession"
           name="possession"
@@ -107,7 +107,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../scss/_variables.scss";
+
+
 .answer {
   display: inline-flex;
   margin-right: 0.5rem;
@@ -115,24 +118,23 @@ export default {
 
 label {
   display: block;
-  margin-bottom: 0.5rem;
 }
 
 input {
   font: inherit;
-  border: 1px solid #ccc;
+  border: 1px solid $light-color;
 }
 
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #636363;
-  background-color: #dbdbdb;
+  border: 2px solid $light-color;
 }
 
 fieldset {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   border-radius: 0.2rem;
+  border: 2px solid $light-color;
 }
 
 .form-control {

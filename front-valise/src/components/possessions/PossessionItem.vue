@@ -31,7 +31,6 @@
 
 <script>
 export default {
-  inject: ["handlePossessionsTaken"],
   props: ["name", "room", "tags", "id", "taken"],
   emits: ["filter-possession"],
   data() {
@@ -60,6 +59,12 @@ export default {
           this.$store.getters.filterListPossession;
       }
        this.dialogIsDisplay = false;
+    },
+    handlePossessionsTaken(id) {
+      this.$store.commit({
+        type: 'handlePossessionsTaken',
+        id: id
+      })
     }
   },
   computed: {

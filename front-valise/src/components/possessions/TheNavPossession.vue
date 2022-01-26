@@ -33,11 +33,6 @@ export default {
       selectedTab: "list-possessions",
     };
   },
-  provide() {
-    return {
-      handlePossessionsTaken: this.handlePossessionsTaken,
-    };
-  },
   computed: {
     listPosButtonMode() {
       return this.selectedTab === "list-possessions" ? null : "flat";
@@ -49,18 +44,6 @@ export default {
   methods: {
     setSelectedTab(tab) {
       this.selectedTab = tab;
-    },
-    handlePossessionsTaken(id) {
-      const posIndex = this.$store.state.possessionsToBeTaken.findIndex(
-        (pos) => pos.id === id
-      );
-      if (posIndex !== -1) {
-        this.$store.commit({
-          type: 'changeTakenValue',
-          index: posIndex
-        })
-      }
-      //todo refilter?
     },
   },
   beforeMount() {

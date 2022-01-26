@@ -105,7 +105,15 @@ const store = createStore({
           if (tagIndex !== -1) {
             state.listTags[tagIndex].selected = !state.listTags[tagIndex].selected;
           }
-          
+        },
+        handlePossessionsTaken(state, payload) {
+          const posIndex = state.possessionsToBeTaken.findIndex(
+            (pos) => pos.id === payload.id
+          );
+          if (posIndex !== -1) {
+            //todo doublon with changeTaken method
+            state.possessionsToBeTaken[posIndex].taken = !state.possessionsToBeTaken[posIndex].taken
+          }
         },
     },
     getters: {

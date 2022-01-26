@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     addTakenPossessionStyle() {
-      return this.taken ? "taken" : null;
+      return this.taken ? "taken" : "totake";
     },
   },
 };

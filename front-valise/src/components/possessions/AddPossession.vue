@@ -1,7 +1,7 @@
 <template>
   <base-dialog v-if="inputIsInvalid" title="Les champs ne sont pas complets">
     <template #default>
-      <p>Outch un champ ou plus n'a pas été rempli.</p>
+      <p>Un champ ou plus n'a pas été rempli.</p>
       <p>Veuillez relire le formulaire.</p>
     </template>
     <template #actions>

@@ -4,11 +4,17 @@
 
 ## Contexte du projet
 
-Depuis plusieurs années j'utilise l'application "We note" pour gérer une liste d'objets à emporter lors de mes voyages. Cette liste me permet de ne rien oublier. 
+Depuis plusieurs années j'utilise l'application "WeNote" pour gérer une liste d'objets à emporter lors de mes voyages. Cette liste me permet de ne rien oublier. 
 
 Néanmoins cette application ne me permet pas de trier par type de voyage. En effet, la liste m'affiche tout, y compris la doudoune de l'hiver alors que je cherche à faire mon sac pour deux jours de rando en été. 
 
-Aussi je souhaitais pouvoir regrouper mes objets par lieu de rangement pour m'éviter de faire de nombreux aller et retour dans ma maison. 
+Aussi (parce que j'adore gagner du temps), je souhaitais pouvoir regrouper mes objets par lieu de rangement pour m'éviter de faire de nombreux aller et retour dans ma maison. 
+
+## Niveau technique
+
+J'ai débuté ce projet lors de mon exploration de VueJs en novembre 2021. Récemmment (janvier 2022) j'ai légèrement améliorer l'application à l'aide des connaissances acquises entre temps. 
+
+Pour l'instant cette application n'est pas couplé avec une API. cette dernière sera développée dans les mois à venir. 
 
 ## Concrètement que fait Dans ma valise ? 
 
@@ -22,9 +28,11 @@ L'utilisateur peut rajouter et supprimer des objets.
 
 ## Screenshots du projet
 
-<img src="./screenshot/valise01.jpg" alt="screenshot dans-ma-valise" width="300"/><img src="./screenshot/valise02.jpg" alt="screenshot dans-ma-valise" width="300"/>
+<img src="./screenshot/dans-ma-valise01.jpg" alt="screenshot dans-ma-valise" width="600"/>
 
-<img src="./screenshot/valise03.jpg" alt="screenshot dans-ma-valise" width="300"/><img src="./screenshot/valise04.jpg" alt="screenshot dans-ma-valise" width="300"/>
+<img src="./screenshot/dans-ma-valise02.jpg" alt="screenshot dans-ma-valise" width="600"/>
+
+<img src="./screenshot/dans-ma-valise03.jpg" alt="screenshot dans-ma-valise" width="600"/>
 
 ## Stack Technique (prérequis) 
 

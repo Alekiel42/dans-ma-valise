@@ -36,7 +36,6 @@ export default {
   provide() {
     return {
       changeSelectedTag: this.changeSelectedTag,
-      tags: this.$store.state.listTags,
       handlePossessionsTaken: this.handlePossessionsTaken,
     };
   },

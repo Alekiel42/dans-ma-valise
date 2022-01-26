@@ -36,7 +36,7 @@
 
       <fieldset>
         <legend>Quand faut-il prendre cet objet ?</legend>
-        <div v-for="tag in tags" :key="tag.name" class="answer">
+        <div v-for="tag in this.$store.state.listTags" :key="tag.name" class="answer">
           <input
             type="checkbox"
             :id="tag.name"
@@ -62,7 +62,6 @@ export default {
       inputIsInvalid: false,
     };
   },
-  inject: ["tags"],
   emits: ['redirect-list-possessions'],
   methods: {
     submitData(event) {

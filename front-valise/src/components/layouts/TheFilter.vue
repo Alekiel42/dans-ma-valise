@@ -3,7 +3,7 @@
     <h2>Filter les objets en fonction du type de voyage</h2>
     <div class="filter">
       <base-tag
-        v-for="tag in tags"
+        v-for="tag in this.$store.state.listTags"
         :key="tag.name"
         :selected="tag.selected"
         @click="changeSelectedTag(tag.name)"
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  inject: ["tags", "changeSelectedTag"],
+  inject: ["changeSelectedTag"],
 };
 </script>
 

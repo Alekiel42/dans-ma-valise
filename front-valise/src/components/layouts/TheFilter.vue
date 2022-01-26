@@ -6,7 +6,7 @@
         v-for="tag in this.$store.state.listTags"
         :key="tag.name"
         :selected="tag.selected"
-        @click="changeSelectedTag(tag.name)"
+        @click="changeSelectedTag(tag.name)" 
         class="filter_tag"
       >
         {{ tag.name }}
@@ -17,7 +17,15 @@
 
 <script>
 export default {
-  inject: ["changeSelectedTag"],
+  methods: {
+    changeSelectedTag(name) {
+      this.$store.commit({
+        type: 'changeStatusTag',
+        name: name
+      });
+      this.$store.getters.filterListPossession;
+    }
+  }
 };
 </script>
 

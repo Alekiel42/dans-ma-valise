@@ -100,6 +100,13 @@ const store = createStore({
         changeTakenValue(state, payload) {
             state.possessionsToBeTaken[payload.index].taken = !state.possessionsToBeTaken[payload.index].taken
         },
+        changeStatusTag(state, payload) { //payload name
+          const tagIndex = state.listTags.findIndex((tag) => tag.name === payload.name);
+          if (tagIndex !== -1) {
+            state.listTags[tagIndex].selected = !state.listTags[tagIndex].selected;
+          }
+          
+        },
     },
     getters: {
         filterListPossession(state) {

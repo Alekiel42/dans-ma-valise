@@ -35,7 +35,6 @@ export default {
   },
   provide() {
     return {
-      changeSelectedTag: this.changeSelectedTag,
       handlePossessionsTaken: this.handlePossessionsTaken,
     };
   },
@@ -50,13 +49,6 @@ export default {
   methods: {
     setSelectedTab(tab) {
       this.selectedTab = tab;
-    },
-    changeSelectedTag(name) {
-      const tagIndex = this.$store.state.listTags.findIndex((tag) => tag.name === name);
-      if (tagIndex !== -1) {
-        this.$store.state.listTags[tagIndex].selected = !this.$store.state.listTags[tagIndex].selected;
-      }
-      this.$store.getters.filterListPossession;
     },
     handlePossessionsTaken(id) {
       const posIndex = this.$store.state.possessionsToBeTaken.findIndex(

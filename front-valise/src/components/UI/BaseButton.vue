@@ -17,6 +17,7 @@ export default {
 
 button {
   padding: 0.75rem 1.5rem;
+  margin: 0.3rem;
   font-family: inherit;
   background-color: $main-color;
   color: white;

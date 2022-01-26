@@ -1,4 +1,13 @@
 <template>
+  <base-dialog v-if="dialogIsDisplay" title="Suppression">
+    <template #default>
+      <p>Voulez-vous vraiment supprimer l'objet "{{ this.name }}" ?</p>
+    </template>
+    <template #actions>
+      <base-button @click="deletePossession(id)">Oui</base-button>
+      <base-button @click="cancelDelete">Non</base-button>
+    </template>
+  </base-dialog>
   <li>
     <base-card :mode="addTakenPossessionStyle">
       <header>
@@ -13,7 +22,7 @@
       <div class="tag" v-if="!taken">
         <base-tag v-for="tag in tags" :key="tag">{{ tag }}</base-tag>
       </div>
-      <base-button :mode="this.taken ? 'taken' : 'flat'" @click="deletePossession(id)"
+      <base-button :mode="this.taken ? 'taken' : 'flat'" @click="confirmDelete()"
         >Supprimer cette carte</base-button
       >
     </base-card>
@@ -25,7 +34,19 @@ export default {
   inject: ["handlePossessionsTaken"],
   props: ["name", "room", "tags", "id", "taken"],
   emits: ["filter-possession"],
+  data() {
+    return {
+      dialogIsDisplay: false,
+    }
+  },
   methods: {
+    confirmDelete() {
+      this.dialogIsDisplay = true;
+
+    },
+    cancelDelete() {
+      this.dialogIsDisplay = false;
+    },
     deletePossession(possessionId) {
       const possessionIndex = this.$store.state.possessionsToBeTaken.findIndex(
         (poss) => poss.id === possessionId
@@ -38,6 +59,7 @@ export default {
             
           this.$store.getters.filterListPossession;
       }
+       this.dialogIsDisplay = false;
     }
   },
   computed: {

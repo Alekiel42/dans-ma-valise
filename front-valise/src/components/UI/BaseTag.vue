@@ -35,11 +35,15 @@ div {
 }
 
 div:hover {
-  border: 1px solid $main-color;
+  border: 1px solid $dark-color;
 }
 
 .unselected {
   color:  $dark-color;
   background-color: transparent;
+}
+
+.unselected:hover {
+  border: 1px solid $main-color;
 }
 </style>

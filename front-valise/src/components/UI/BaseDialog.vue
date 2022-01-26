@@ -28,14 +28,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./../../scss/_variables.scss";
+
 div {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: $shadow-color;
   z-index: 10;
 }
 
@@ -47,14 +49,14 @@ dialog {
   z-index: 100;
   border-radius: 12px;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 8px $shadow-color;
   padding: 0;
   margin: 0;
   overflow: hidden;
 }
 
 header {
-  background-color: #338ca2;
+  background-color: $light-color;
   color: white;
   width: 100%;
   padding: 1rem;

@@ -16,7 +16,7 @@ export default {
 
   div {
     border-radius: 0.5rem;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 8px 8px $shadow-color;
     padding: 1rem;
     margin: 2rem auto;
     max-width: 40rem;

@@ -22,7 +22,7 @@
 
       <fieldset>
         <legend>Où est rangé cet objet ?</legend>
-        <div v-for="room in rooms" :key="room" class="answer">
+        <div v-for="room in this.$store.state.rooms" :key="room" class="answer">
           <input
             type="radio"
             name="room"
@@ -57,7 +57,6 @@
 export default {
   data() {
     return {
-      rooms: ["chambre", "salle-de-bain", "salon", "cuisine", "entrée"],
       tagChecked: [],
       roomPicked: "",
       inputIsInvalid: false,

@@ -87,6 +87,7 @@ const store = createStore({
                   selected: true,
                 },
               ],
+              rooms: ["chambre", "salle-de-bain", "salon", "cuisine", "entrée"],
         };
     },
     mutations: {

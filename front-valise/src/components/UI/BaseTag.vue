@@ -32,10 +32,10 @@ div {
   padding: 0.5rem;
   margin: 0.3rem;
   transition: border 400ms ease-in-out;
-}
-
-div:hover {
-  border: 1px solid $main-color;
+  
+  &:hover {
+    border: 1px solid $main-color;
+  }
 }
 
 .unselected {

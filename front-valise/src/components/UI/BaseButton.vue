@@ -22,6 +22,11 @@ button {
   color: white;
   cursor: pointer;
   border: none;
+
+  &:hover,
+  &:active {
+  background-color: $dark-color;
+}
 } 
 
 button div {
@@ -31,36 +36,29 @@ button div {
   transition: all 280ms ease-in-out;
 }
 
-button:hover,
-button:active {
-  background-color: $dark-color;
-}
-
 
 .flat {
   background-color: transparent;
   color: $dark-color;
-}
 
-.flat:hover div {
-  width: 100%;
-}
-
-.flat:hover,
-.flat:active {
+  &:hover,
+  &:active {
   background-color: transparent;
+  }
+
+  &:hover div {
+    width: 100%;
+  }
+
 }
 
 .taken {
   background-color: transparent;
   color: rgb(122, 122, 122);
+
+  &:hover {
+    background-color: rgb(214, 214, 214);
+  }
 }
-
-.taken:hover {
-  background-color: rgb(214, 214, 214);
-
-}
-
-
 
 </style>

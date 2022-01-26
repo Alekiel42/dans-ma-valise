@@ -69,16 +69,6 @@ p {
   margin: 0.5rem 0;
 }
 
-a {
-  text-decoration: none;
-  color: #ce5c00;
-}
-
-a:hover,
-a:active {
-  color: #c89300;
-}
-
 .room {
   color: rgb(59, 59, 59);
   font-size: 0.9rem;

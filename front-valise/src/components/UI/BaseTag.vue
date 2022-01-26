@@ -35,7 +35,7 @@ div {
 }
 
 div:hover {
-  border: 1px solid $dark-color;
+  border: 1px solid $main-color;
 }
 
 .unselected {
@@ -43,7 +43,4 @@ div:hover {
   background-color: transparent;
 }
 
-.unselected:hover {
-  border: 1px solid $main-color;
-}
 </style>

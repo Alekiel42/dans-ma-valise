@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import PossessionItem from "./PossessionItem.vue";
 import TheFilter from "./../layouts/TheFilter.vue";
 
@@ -34,13 +35,7 @@ export default {
     TheFilter,
   },
   computed: {
-    possessionsNotTakenYet() {
-      return this.$store.getters.possessionsNotTakenYet;
-    },
-    possessionsTaken() {
-      return this.$store.getters.possessionsTaken;
-    },
-
+    ...mapGetters(['possessionsNotTakenYet', 'possessionsTaken'])
   },
 };
 </script>
